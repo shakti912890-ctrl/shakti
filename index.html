@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>ToolBox Pro – Free Online Tools</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#68758b;--line:#e5eaf2;--primary:#635bff;--primary2:#8b5cf6;--soft:#f0efff;--shadow:0 12px 35px rgba(31,42,68,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(120deg,#101827,#202b48 65%,#41358c);color:white;padding:25px max(20px,calc((100% - 1180px)/2)) 34px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-size:22px;font-weight:850;letter-spacing:-.5px}.brand span{color:#a99cff}.tag{font-size:12px;border:1px solid #ffffff40;border-radius:99px;padding:6px 10px;color:#e7e7ff}
+.hero{padding:35px 0 10px;max-width:720px}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.08;margin:0 0 12px;letter-spacing:-1.3px}.hero p{color:#c7cce0;margin:0 0 22px}.search{width:100%;max-width:570px;padding:15px 18px;border:1px solid #ffffff45;border-radius:13px;background:#ffffff16;color:#fff;font-size:15px;outline:none}.search::placeholder{color:#d3d6e4}
+main{max-width:1180px;margin:28px auto;padding:0 20px 55px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--muted);font-size:13px}.stat b{color:var(--ink)}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:22px}.sidebar{align-self:start;position:sticky;top:15px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px}.side-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#9aa3b3;font-weight:800;padding:8px 10px}.navbtn{display:flex;width:100%;align-items:center;gap:10px;border:0;background:transparent;padding:11px 10px;border-radius:10px;color:#59657a;text-align:left;cursor:pointer;font-weight:650}.navbtn:hover,.navbtn.active{background:var(--soft);color:var(--primary)}.navbtn .ico{font-size:18px;width:23px;text-align:center}
+.content-head{display:flex;align-items:end;justify-content:space-between;margin:2px 0 14px;gap:12px}.content-head h2{font-size:21px;margin:0}.content-head p{margin:3px 0 0;color:var(--muted);font-size:13px}
+.toolgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.toolcard{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:17px;text-align:left;cursor:pointer;transition:.18s;min-height:130px;color:var(--ink)}.toolcard:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#c8c3ff}.toolicon{width:42px;height:42px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:21px;margin-bottom:12px}.toolcard strong{display:block;font-size:14px}.toolcard small{display:block;color:var(--muted);margin-top:4px;font-size:12px}
+.panel{display:none;background:var(--card);border:1px solid var(--line);border-radius:17px;padding:22px;box-shadow:var(--shadow)}.panel.active{display:block}.paneltop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}.paneltop h2{margin:0;font-size:21px}.back{border:1px solid var(--line);background:white;border-radius:9px;padding:8px 12px;cursor:pointer;color:var(--muted)}
+.field{margin:13px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid #dce2ec;border-radius:10px;background:#fff;color:var(--ink);font:inherit;outline:none}.field input:focus,.field select:focus{border-color:var(--primary);box-shadow:0 0 0 3px #635bff18}.rowfields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.btn{border:0;background:var(--primary);color:white;border-radius:10px;padding:11px 16px;font-weight:750;cursor:pointer}.btn:hover{background:#5149e8}.btn.secondary{background:#eef0f6;color:#344054}.btn:disabled{opacity:.5;cursor:not-allowed}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.hint{font-size:12px;color:var(--muted);margin-top:7px}.result{margin-top:15px;padding:13px 15px;border-radius:11px;background:#f2f1ff;color:#39318e;overflow-wrap:anywhere}.drop{border:2px dashed #cbd2e1;border-radius:13px;padding:25px;text-align:center;color:var(--muted);background:#fafbfe}.drop input{max-width:100%}canvas.preview{max-width:100%;height:auto;border:1px solid var(--line);border-radius:10px;margin-top:12px}.previewwrap{margin-top:12px;max-height:460px;overflow:auto}.hidden{display:none!important}footer{text-align:center;color:#8a94a6;padding:22px;font-size:12px}
+@media(max-width:900px){.toolgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:190px minmax(0,1fr)}}
+@media(max-width:650px){header{padding:20px 17px 27px}.hero{padding-top:28px}main{padding:0 13px 35px;margin-top:18px}.layout{display:block}.sidebar{position:static;display:flex;overflow:auto;gap:5px;margin-bottom:16px;padding:8px}.side-title{display:none}.navbtn{white-space:nowrap;width:auto;padding:9px 11px}.navbtn .ico{display:none}.toolgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.toolcard{padding:13px;min-height:122px}.panel{padding:16px}.rowfields{grid-template-columns:1fr}.content-head{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top"><div class="brand">⚡ ToolBox <span>Pro</span></div><div class="tag">FREE • FAST • PRIVATE</div></div>
+ <div class="hero"><h1>All your everyday tools.<br>One simple place.</h1><p>Images, PDF, calculators and useful utilities — free to use in your browser.</p><input id="search" class="search" placeholder="Search tools… e.g. image resize, PDF to JPG"></div>
+</header>
+<main>
+ <div class="stats"><div class="stat"><b>8+</b> useful tools</div><div class="stat"><b>Free</b> to use</div><div class="stat"><b>Private</b> browser processing*</div></div>
+ <div class="layout">
+  <aside class="sidebar">
+   <div class="side-title">Categories</div>
+   <button class="navbtn active" data-cat="all"><span class="ico">▦</span> All tools</button>
+   <button class="navbtn" data-cat="image"><span class="ico">🖼️</span> Image tools</button>
+   <button class="navbtn" data-cat="pdf"><span class="ico">📄</span> PDF tools</button>
+   <button class="navbtn" data-cat="utility"><span class="ico">🧮</span> Utilities</button>
+  </aside>
+  <section>
+   <div id="catalog">
+    <div class="content-head"><div><h2>Explore tools</h2><p>Select a tool to get started.</p></div></div>
+    <div class="toolgrid" id="toolgrid">
+     <button class="toolcard" data-tool="crop" data-cat="image"><div class="toolicon">✂️</div><strong>Image Crop</strong><small>Crop photos to your preferred size</small></button>
+     <button class="toolcard" data-tool="resize" data-cat="image"><div class="toolicon">↔️</div><strong>Image Resize</strong><small>Change image width and height</small></button>
+     <button class="toolcard" data-tool="compress" data-cat="image"><div class="toolicon">🗜️</div><strong>KB / MB Resizer</strong><small>Compress image to a target file size</small></button>
+     <button class="toolcard" data-tool="pdfjpg" data-cat="pdf"><div class="toolicon">📑</div><strong>PDF to JPG</strong><small>Convert PDF pages into images</small></button>
+     <button class="toolcard" data-tool="jpgpdf" data-cat="pdf"><div class="toolicon">🧾</div><strong>JPG to PDF</strong><small>Turn images into a PDF document</small></button>
+     <button class="toolcard" data-tool="age" data-cat="utility"><div class="toolicon">🎂</div><strong>Age Calculator</strong><small>Calculate exact age in years, months, days</small></button>
+     <button class="toolcard" data-tool="password" data-cat="utility"><div class="toolicon">🔐</div><strong>Password Generator</strong><small>Create a strong random password</small></button>
+     <button class="toolcard" data-tool="bmi" data-cat="utility"><div class="toolicon">⚖️</div><strong>BMI Calculator</strong><small>Calculate body mass index</small></button>
+    </div>
+   </div>
+   <div id="panel" class="panel">
+    <div class="paneltop"><h2 id="paneltitle">Tool</h2><button class="back" id="back">← All tools</button></div>
+    <div id="toolbody"></div>
+   </div>
+  </section>
+ </div>
+</main>
+<footer>*Files are processed locally in your browser where supported. PDF tools load open-source libraries from a CDN. No account required.</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+let activeCat='all', cropper=null, currentImage=null, imageName='image';
+const titles={crop:'Image Crop',resize:'Image Resize',compress:'KB / MB Resizer',pdfjpg:'PDF to JPG',jpgpdf:'JPG to PDF',age:'Age Calculator',password:'Password Generator',bmi:'BMI Calculator'};
+function showTool(name){$('#catalog').classList.add('hidden');$('#panel').classList.add('active');$('#paneltitle').textContent=titles[name];if(cropper){cropper.destroy();cropper=null}const b=$('#toolbody');b.innerHTML=templates[name]();setup(name)}
+function home(){if(cropper){cropper.destroy();cropper=null}$('#panel').classList.remove('active');$('#catalog').classList.remove('hidden')}
+$('#back').onclick=home;
+$$('.toolcard').forEach(c=>c.onclick=()=>showTool(c.dataset.tool));
+$$('.navbtn').forEach(b=>b.onclick=()=>{activeCat=b.dataset.cat;$$('.navbtn').forEach(x=>x.classList.toggle('active',x===b));filterTools()});
+function filterTools(){const q=$('#search').value.toLowerCase();$$('.toolcard').forEach(c=>{const matchCat=activeCat==='all'||c.dataset.cat===activeCat;const matchText=c.innerText.toLowerCase().includes(q);c.classList.toggle('hidden',!(matchCat&&matchText))})}
+$('#search').addEventListener('input',filterTools);
+const upload=(accept='image/*',multiple=false)=>`<div class="field"><label>Select ${multiple?'image files':'a file'}</label><div class="drop"><input type="file" id="file" accept="${accept}" ${multiple?'multiple':''}><div class="hint">Choose a file from your device</div></div></div>`;
+const templates={
+crop:()=>`${upload()}<div class="hint">Drag the crop area on the photo, then save your cropped image.</div><div class="previewwrap"><img id="img" style="display:none;max-width:100%"></div><div class="actions"><button class="btn" id="save" disabled>Crop & Download</button></div>`,
+resize:()=>`${upload()}<div class="rowfields"><div class="field"><label>Width (px)</label><input id="w" type="number" min="1" placeholder="Width"></div><div class="field"><label>Height (px)</label><input id="h" type="number" min="1" placeholder="Height"></div></div><label><input type="checkbox" id="lock" checked> Keep aspect ratio</label><div class="field"><label>Output format</label><select id="fmt"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WEBP</option></select></div><div class="previewwrap"><img id="img" style="display:none;max-width:100%"></div><div class="actions"><button class="btn" id="save" disabled>Resize & Download</button></div>`,
+compress:()=>`${upload()}<div class="rowfields"><div class="field"><label>Target size</label><input id="target" type="number" min="1" value="100"></div><div class="field"><label>Unit</label><select id="unit"><option value="KB">KB</option><option value="MB">MB</option></select></div></div><div class="field"><label>Image format</label><select id="fmt"><option value="image/jpeg">JPG (recommended)</option><option value="image/webp">WEBP</option></select></div><div class="hint">The tool adjusts image quality and dimensions to get close to your target. Results depend on the original image.</div><div id="info" class="hint"></div><div class="actions"><button class="btn" id="save" disabled>Compress & Download</button></div>`,
+pdfjpg:()=>`${upload('application/pdf')}<div class="field"><label>Render quality</label><select id="scale"><option value="1.5">Standard</option><option value="2">High</option><option value="3">Very high</option></select></div><div class="actions"><button class="btn" id="convert" disabled>Convert PDF to JPG</button></div><div id="out" class="result hidden"></div>`,
+jpgpdf:()=>`${upload('image/*',true)}<div class="field"><label>Page size</label><select id="pagesize"><option value="a4">A4</option><option value="letter">Letter</option><option value="fit">Fit to image</option></select></div><div class="actions"><button class="btn" id="convert" disabled>Convert to PDF</button></div><div id="out" class="result hidden"></div>`,
+age:()=>`<div class="field"><label>Date of birth</label><input id="dob" type="date"></div><div class="field"><label>Calculate age on</label><input id="asof" type="date"></div><div class="actions"><button class="btn" id="calc">Calculate Age</button></div><div id="out"></div>`,
+password:()=>`<div class="field"><label>Password length: <b id="lenval">16</b></label><input id="len" type="range" min="6" max="64" value="16"></div><div class="field"><label>Include characters</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><label><input type="checkbox" id="upper" checked> Uppercase (A-Z)</label><label><input type="checkbox" id="lower" checked> Lowercase (a-z)</label><label><input type="checkbox" id="nums" checked> Numbers (0-9)</label><label><input type="checkbox" id="syms" checked> Symbols (!@#)</label></div></div><div class="actions"><button class="btn" id="gen">Generate Password</button></div><div class="field"><label>Your password</label><input id="pass" readonly placeholder="Your secure password appears here"></div><div class="actions"><button class="btn secondary" id="copy">Copy password</button></div><div id="out" class="hint"></div>`,
+bmi:()=>`<div class="rowfields"><div class="field"><label>Height (cm)</label><input id="height" type="number" min="1" placeholder="e.g. 170"></div><div class="field"><label>Weight (kg)</label><input id="weight" type="number" min="1" placeholder="e.g. 65"></div></div><div class="actions"><button class="btn" id="calc">Calculate BMI</button></div><div id="out"></div>`
+};
+function setup(name){
+ if(name==='crop'||name==='resize'||name==='compress')setupImage(name);
+ if(name==='pdfjpg')setupPdfJpg();
+ if(name==='jpgpdf')setupJpgPdf();
+ if(name==='age')setupAge();
+ if(name==='password')setupPassword();
+ if(name==='bmi')setupBmi();
+}
+function readImage(file,cb){if(!file)return;imageName=file.name.replace(/\.[^.]+$/,'')||'image';const url=URL.createObjectURL(file);const img=new Image();img.onload=()=>cb(img,url);img.onerror=()=>alert('Could not open this image.');img.src=url}
+function canvasBlob(canvas,type,quality){return new Promise(resolve=>canvas.toBlob(resolve,type,quality))}
+function downloadBlob(blob,name){const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+function setupImage(name){
+ const file=$('#file'),save=$('#save');let img=null;
+ file.onchange=()=>readImage(file.files[0],(im,url)=>{img=im;currentImage=im;if(name==='crop'){const el=$('#img');el.src=url;el.style.display='block';if(cropper)cropper.destroy();cropper=new Cropper(el,{viewMode:1,autoCropArea:.85,background:false});}else{$('#img').src=url;$('#img').style.display='block';if(name==='resize'){$('#w').value=im.naturalWidth;$('#h').value=im.naturalHeight;}else $('#info').textContent=`Original size: ${(file.files[0].size/1024).toFixed(1)} KB`; }save.disabled=false;});
+ if(name==='resize'){$('#w').oninput=()=>{if($('#lock').checked&&img)$('#h').value=Math.round($('#w').value*img.naturalHeight/img.naturalWidth)};$('#h').oninput=()=>{if($('#lock').checked&&img)$('#w').value=Math.round($('#h').value*img.naturalWidth/img.naturalHeight)};}
+ save.onclick=async()=>{
+  if(!img)return;
+  if(name==='crop'){cropper.getCroppedCanvas({imageSmoothingQuality:'high'}).toBlob(blob=>downloadBlob(blob,imageName+'-cropped.png'),'image/png');return}
+  let c=document.createElement('canvas'),ctx=c.getContext('2d');
+  if(name==='resize'){c.width=Math.max(1,+$('#w').value);c.height=Math.max(1,+$('#h').value);ctx.drawImage(img,0,0,c.width,c.height);const blob=await canvasBlob(c,$('#fmt').value,.92);downloadBlob(blob,imageName+'-resized.'+ext($('#fmt').value));}
+  if(name==='compress'){
+   const target=+$('#target').value*($('#unit').value==='MB'?1024*1024:1024);if(!target||target<100){alert('Please enter a target size of at least 1 KB.');return}
+   const type=$('#fmt').value;c.width=img.naturalWidth;c.height=img.naturalHeight;ctx.drawImage(img,0,0,c.width,c.height);
+   let blob=null,q=.92;
+   for(let i=0;i<12;i++){blob=await canvasBlob(c,type,q);if(blob.size<=target)break;q-=.07;if(q<.15){q=.82;c.width=Math.max(100,Math.round(c.width*.85));c.height=Math.max(100,Math.round(c.height*.85));ctx.clearRect(0,0,c.width,c.height);ctx.drawImage(img,0,0,c.width,c.height);}}
+   $('#info').textContent=`Output: ${(blob.size/1024).toFixed(1)} KB (${(blob.size/1024/1024).toFixed(2)} MB)${blob.size>target?' — target could not be reached without more quality loss.':''}`;
+   downloadBlob(blob,imageName+'-compressed.'+ext(type));
+  }
+ };
+}
+function ext(type){return type==='image/png'?'png':type==='image/webp'?'webp':'jpg'}
+function setupPdfJpg(){
+ const f=$('#file'),btn=$('#convert');f.onchange=()=>btn.disabled=!f.files.length;
+ btn.onclick=async()=>{try{if(!window.pdfjsLib)throw Error('PDF library did not load. Check your internet connection and reload.');pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';const pdf=await pdfjsLib.getDocument({data:await f.files[0].arrayBuffer()}).promise;const out=$('#out');out.classList.remove('hidden');out.innerHTML='';for(let i=1;i<=pdf.numPages;i++){const page=await pdf.getPage(i),vp=page.getViewport({scale:+$('#scale').value}),c=document.createElement('canvas');c.width=vp.width;c.height=vp.height;await page.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;const blob=await canvasBlob(c,'image/jpeg',.92);const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`page-${i}.jpg`;a.textContent=`Download page ${i} JPG`;a.style.display='block';a.style.margin='8px 0';out.append(a)}out.prepend(document.createTextNode(`${pdf.numPages} page(s) converted. `));}catch(e){alert(e.message||'Conversion failed')}}}
+function setupJpgPdf(){const f=$('#file'),btn=$('#convert');f.onchange=()=>btn.disabled=!f.files.length;btn.onclick=async()=>{try{if(!window.jspdf)throw Error('PDF library did not load. Check your internet connection and reload.');const files=[...f.files];let doc=null;for(let i=0;i<files.length;i++){const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(files[i])});const im=await new Promise((res,rej)=>{const x=new Image();x.onload=()=>res(x);x.onerror=rej;x.src=data});const mode=$('#pagesize').value;let orientation=im.width>im.height?'landscape':'portrait';if(!doc){doc=new jspdf.jsPDF({orientation,unit:'pt',format:mode==='fit'?[im.width,im.height]:mode});}else doc.addPage(mode==='fit'?[im.width,im.height]:mode,orientation);const pw=doc.internal.pageSize.getWidth(),ph=doc.internal.pageSize.getHeight(),ratio=Math.min(pw/im.width,ph/im.height),w=im.width*ratio,h=im.height*ratio;doc.addImage(data,'JPEG',(pw-w)/2,(ph-h)/2,w,h); }doc.save('images-to-pdf.pdf');$('#out').classList.remove('hidden');$('#out').textContent=`Successfully added ${files.length} image(s) to your PDF.`}catch(e){alert(e.message||'Conversion failed')}}}
+function setupAge(){
+ const now=new Date(),today=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);$('#asof').value=today;$('#dob').max=today;
+ $('#calc').onclick=()=>{if(!$('#dob').value){alert('Please enter your date of birth.');return}let a=new Date($('#dob').value+'T00:00:00'),b=new Date($('#asof').value+'T00:00:00');if(a>b){alert('Date of birth cannot be after calculation date.');return}let y=b.getFullYear()-a.getFullYear(),m=b.getMonth()-a.getMonth(),d=b.getDate()-a.getDate();if(d<0){m--;d+=new Date(b.getFullYear(),b.getMonth(),0).getDate()}if(m<0){y--;m+=12}const days=Math.floor((b-a)/86400000);$('#out').innerHTML=`<div class="result"><b>${y} years, ${m} months, ${d} days</b><br><span class="hint">${days.toLocaleString()} total days</span></div>`}
+}
+function setupPassword(){
+ $('#len').oninput=()=>$('#lenval').textContent=$('#len').value;
+ function generate(){let chars='';if($('#upper').checked)chars+='ABCDEFGHIJKLMNOPQRSTUVWXYZ';if($('#lower').checked)chars+='abcdefghijklmnopqrstuvwxyz';if($('#nums').checked)chars+='0123456789';if($('#syms').checked)chars+='!@#$%^&*()-_=+[]{}?';if(!chars){alert('Select at least one character type.');return}const arr=new Uint32Array(+$ ('#len').value);crypto.getRandomValues(arr);$('#pass').value=Array.from(arr,n=>chars[n%chars.length]).join('');$('#out').textContent='Password generated. Store it safely.'}
+ $('#gen').onclick=generate;$('#copy').onclick=async()=>{if(!$('#pass').value){generate();return}try{await navigator.clipboard.writeText($('#pass').value);$('#out').textContent='Copied to clipboard.'}catch(e){$('#pass').select();document.execCommand('copy');$('#out').textContent='Copied.'}};generate();
+}
+function setupBmi(){$('#calc').onclick=()=>{const h=+$ ('#height').value/100,w=+$ ('#weight').value;if(!h||!w){alert('Enter a valid height and weight.');return}const bmi=w/(h*h),cat=bmi<18.5?'Underweight':bmi<25?'Normal range':bmi<30?'Overweight':'Obesity range';$('#out').innerHTML=`<div class="result"><b>BMI: ${bmi.toFixed(1)}</b><br>${cat}<div class="hint">BMI is a screening measure, not a diagnosis.</div></div>`}}
+</script>
+</body>
+</html>
